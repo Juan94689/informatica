@@ -1,19 +1,104 @@
+
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Mi pagina wed</title>
-    </head>
-    <body>
-        <h1>BIENVENIDOS</h1>
-        <P>Juan perero 3ºe</P>
-        <ul>
-            <li><a href="./enlace.html">Ejercicio 1</li>
-            <li><a href="./Tabla.html">  Ejercicio 2</a></li>
-            <li><a href="./semantica.html">Ejercicio 3</a></li>
-        </ul>
-        <img src="./imagen1.jpg" alt="">
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Ejemplos + Enlaces a GitHub</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 40px;
+      padding: 20px;
+    }
+    .btn {
+      margin: 8px;
+      padding: 10px 18px;
+      font-size: 15px;
+      cursor: pointer;
+      border-radius: 6px;
+      border: 1px solid #555;
+      background: #f0f0f0;
+    }
+    .section {
+      margin-bottom: 24px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 16px;
+    }
+    .links { margin-top: 12px; }
+  </style>
+</head>
+<body>
 
+  <div class="section">
+    <h2>Cambiar texto</h2>
+    <p id="miParrafo">Texto original</p>
+    <button class="btn" onclick="cambiarTexto()">Cambiar texto</button>
+  </div>
 
+  <div class="section">
+    <h2>Contador</h2>
+    <p>Contador: <span id="contador">0</span></p>
+    <button class="btn" onclick="incrementarContador()">Sumar 1</button>
+  </div>
 
-    </body>
-    <html>
+  <div class="section">
+    <h2>Cambiar color de fondo</h2>
+    <button class="btn" onclick="cambiarColor()">Cambiar color de fondo</button>
+  </div>
+
+  <div class="section">
+    <h2>Abrir archivos en GitHub</h2>
+    
+    <div class="links">
+      <button class="btn" onclick="abrirEnNuevaPestana('https://github.com/Juan94689/informatica/blob/main/ejercicio1.js')">
+        Abrir ejercicio1.js
+      </button>
+
+      <button class="btn" onclick="abrirEnNuevaPestana('https://github.com/Juan94689/informatica/blob/main/ejercicio1.html')">
+        Abrir ejercicio1.html
+      </button>
+
+      <button class="btn" onclick="abrirEnNuevaPestana('https://github.com/Juan94689/informatica/blob/main/Ejercicio1JS.html')">
+        Abrir Ejercicio1JS.html
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // 1. Cambiar texto
+    function cambiarTexto() {
+      const p = document.getElementById("miParrafo");
+      p.textContent = "¡El texto ha cambiado!";
+    }
+
+    // 2. Contador
+    let contador = 0;
+    function incrementarContador() {
+      contador++;
+      document.getElementById("contador").textContent = contador;
+    }
+
+    // 3. Cambiar color de fondo (aleatorio de una lista)
+    function cambiarColor() {
+      const colores = ["#FFCCCC", "#CCFFCC", "#CCCCFF", "#FFFF99", "#FFB6C1", "#E6FFE6", "#FFF0E6"];
+      const colorAleatorio = colores[Math.floor(Math.random() * colores.length)];
+      document.body.style.backgroundColor = colorAleatorio;
+    }
+
+    // Función para abrir una URL en una nueva pestaña
+    function abrirEnNuevaPestana(url) {
+      // abre en una nueva pestaña
+      window.open(url, "_blank");
+      // alternativa más segura (si prefieres usar rel="noopener noreferrer"):
+      // const a = document.createElement('a');
+      // a.href = url;
+      // a.target = '_blank';
+      // a.rel = 'noopener noreferrer';
+      // document.body.appendChild(a);
+      // a.click();
+      // document.body.removeChild(a);
+    }
+  </script>
+</body>
+</html>
