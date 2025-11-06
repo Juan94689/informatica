@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Asistencia a la Fiesta</title>
+</head>
+<body>
+
+    <button onclick="capturarDatos()">Registrar asistencia</button>
+
+    <script>
+        function capturarDatos() {
+            // Pedir el nombre
+            let nombre = prompt("Ingresa tu nombre:");
+
+            // Validar que el nombre no esté vacío
+            if (!nombre) {
+                alert("Debes ingresar un nombre válido.");
+                return;
+            }
+
+            // Preguntar si asistirá
+            let asistencia = prompt("¿Asistirás a la fiesta de fin de año? (si/no)");
+
+            // Convertir a minúsculas para evitar errores
+            asistencia = asistencia.toLowerCase();
+
+            // Validar respuesta
+            if (asistencia === "si") {
+                alert(nombre + " asistirá a la fiesta ✅");
+            } else if (asistencia === "no") {
+                alert(nombre + " NO asistirá a la fiesta ❌");
+            } else {
+                alert("Respuesta no válida. Debes escribir 'si' o 'no'.");
+            }
+        }
+    </script>
+
+</body>
+</html>

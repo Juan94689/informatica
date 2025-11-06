@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenido</title>
+</head>
+<body>
+
+    <h2 id="mensaje"></h2>
+
+    <script>
+        // Tomar datos enviados por la URL
+        const params = new URLSearchParams(window.location.search);
+
+        const nombre = params.get("nombre");
+        const apellido = params.get("apellido");
+        const curso = params.get("curso");
+
+        // Mostrar saludo personalizado
+        const mensaje = document.getElementById("mensaje");
+        mensaje.textContent = `¡Bienvenido ${nombre} ${apellido} al curso ${curso}!`;
+    </script>
+
+</body>
+</html>

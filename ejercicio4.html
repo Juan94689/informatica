@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Juego Mejorado</title>
+</head>
+<body>
+
+    <button onclick="jugar()">Jugar</button>
+
+    <script>
+        function jugar() {
+            // Número secreto aleatorio entre 1 y 10
+            const numeroSecreto = Math.floor(Math.random() * 10) + 1;
+            let intentos = 0;
+            let adivinanza;
+
+            do {
+                adivinanza = prompt("Adivina el número secreto (entre 1 y 10):");
+
+                // Convertir a número
+                adivinanza = Number(adivinanza);
+
+                // Validar entrada
+                if (isNaN(adivinanza) || adivinanza < 1 || adivinanza > 10) {
+                    alert("Por favor ingresa un número válido entre 1 y 10.");
+                    continue;
+                }
+
+                intentos++;
+
+                if (adivinanza < numeroSecreto) {
+                    alert("Muy bajo. Intentá otra vez.");
+                } else if (adivinanza > numeroSecreto) {
+                    alert("Muy alto. Intentá nuevamente.");
+                }
+
+            } while (adivinanza !== numeroSecreto);
+
+            // Mensaje final
+            alert("¡Correcto! El número era " + numeroSecreto + ".\nIntentos: " + intentos);
+        }
+    </script>
+
+</body>
+</html>
